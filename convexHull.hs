@@ -16,9 +16,9 @@ slope (P x0 y0) (P x1 y1) = case x1 - x0 of
 -- Builds in four "quadrants".
 convexHull :: [Point] -> [Point]
 convexHull points = let
-    go ps quadIndex = case quadIndex of
+    go ps qIndex = case qIndex of
       4 -> []
-      _ -> (quadHull ps) ++ (map rightTurned (go (map leftTurned ps) (quadIndex + 1)))
+      _ -> (quadHull ps) ++ (map rightTurned (go (map leftTurned ps) (qIndex + 1)))
   in go points 0
 
 quadHull :: [Point] -> [Point]
