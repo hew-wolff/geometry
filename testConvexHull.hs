@@ -13,11 +13,17 @@ main = runTestTT tests
         , TestLabel "large" largeTest
       ]
 
+{-
+Take a single random list of several nearby integer points.
+Then look at the convex hull of the initial segments of this list.
+This includes edge cases like only two points, or collinear points.
+-}
 smallTest :: Test
 smallTest = let
   testCase i expected = TestCase (assertEqual ("taking " ++ show i ++ " points") expected (convexHull (sample i)))
   sample i = take i points
   {-
+  The points, labeled 0 through 7.
   . . 0 4
   . 2 . .
   6 1 5 .
@@ -43,6 +49,11 @@ smallTest = let
     , testCase 8 [P 0 1, P 1 2, P 2 3, P 3 3, P 3 0, P 2 0]
     ]
 
+{-
+Take ten thousand points scattered in the unit circle.
+The hull points should all be close to the circle.
+Also check that the test runs reasonably fast.
+-}
 largeTest :: Test
 largeTest = let
   circlePointSize = 100
