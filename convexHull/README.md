@@ -1,6 +1,6 @@
 # Geometry experiments
 
-This was an attempt to (1) invent an efficient convex-hull algorithm; and (2) improve my Haskell. Research suggests that I more or less came up with the Monotone Chain variant of the Grahan scan. It is less efficient due to the multiple sorts, but it still has the O(n log n) runtime that we want.
+This was an attempt to (1) invent an efficient convex-hull algorithm; and (2) improve my Haskell. Research suggests that I more or less came up with the Monotone Chain variant of the Graham scan. It is less efficient due to the multiple sorts, but it still has the O(n log n) runtime that we want.
 
 ````
 ghci testConvexHull.hs
